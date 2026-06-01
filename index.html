@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método Corpo em Forma | Emagreça de Vez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --rose:#C2185B;
+    --rose-light:#F48FB1;
+    --rose-dark:#880E4F;
+    --peach:#FFCCBC;
+    --cream:#FFF8F5;
+    --gold:#E8A000;
+    --text:#2D1B1B;
+    --muted:#7B5060;
+  }
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#FCE4EC 0%,#FFDDE8 40%,#F8BBD0 100%);padding:0 0 40px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(194,24,91,0.12),transparent 70%);border-radius:50%}
+  .hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(244,143,177,0.2),transparent 70%);border-radius:50%}
+
+  .topbar{background:var(--rose);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:700;letter-spacing:.5px}
+  .topbar span{color:#FFE082}
+
+  .hero-inner{padding:36px 20px 0;text-align:center;position:relative;z-index:2}
+  .badge-new{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:32px;line-height:1.2;color:var(--rose-dark);margin-bottom:12px}
+  .hero h1 em{font-style:italic;color:var(--rose)}
+  .hero-sub{font-size:16px;color:var(--muted);line-height:1.6;max-width:340px;margin:0 auto 24px}
+
+  .hero-img-wrap{position:relative;max-width:320px;margin:0 auto 24px}
+  .hero-img-wrap img{width:100%;border-radius:20px;display:block;box-shadow:0 12px 40px rgba(194,24,91,.18)}
+  .before-after{display:flex;gap:8px;max-width:320px;margin:0 auto 28px}
+  .ba-card{flex:1;background:#fff;border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 4px 16px rgba(194,24,91,.1)}
+  .ba-label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+  .ba-label.before{color:#999}
+  .ba-label.after{color:var(--rose)}
+  .ba-val{font-size:22px;font-weight:800;color:var(--text)}
+  .ba-unit{font-size:12px;color:var(--muted)}
+
+  /* PROVA SOCIAL ESTRELAS */
+  .stars-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:6px}
+  .star{color:#FFB300;font-size:20px}
+  .stars-text{font-size:13px;font-weight:700;color:var(--muted)}
+
+  /* CTA HERO */
+  .cta-btn{display:block;background:linear-gradient(135deg,var(--rose),var(--rose-dark));color:#fff;font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;padding:18px 24px;border-radius:50px;border:none;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 8px 24px rgba(194,24,91,.35);transition:transform .2s,box-shadow .2s;margin:0 auto;max-width:340px;letter-spacing:.3px}
+  .cta-btn:active{transform:scale(.97)}
+  .price-wrap{text-align:center;margin-bottom:16px}
+  .old-price{font-size:14px;color:#aaa;text-decoration:line-through;font-weight:600}
+  .new-price{font-size:36px;font-weight:800;color:var(--rose-dark);line-height:1}
+  .new-price small{font-size:16px}
+  .price-note{font-size:12px;color:var(--muted);margin-top:2px}
+  .guarantee-mini{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--muted);margin-top:10px}
+
+  /* SEÇÃO SEÇÃO */
+  section{padding:40px 20px}
+  .section-title{font-family:'Playfair Display',serif;font-size:26px;text-align:center;color:var(--rose-dark);margin-bottom:8px;line-height:1.25}
+  .section-sub{text-align:center;font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+
+  /* PROBLEMAS */
+  .problems{background:#fff}
+  .problem-list{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:0 auto}
+  .problem-item{display:flex;align-items:flex-start;gap:12px;background:#FFF0F5;border-radius:14px;padding:14px}
+  .problem-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+  .problem-item p{font-size:14px;line-height:1.55;color:var(--text)}
+  .problem-item strong{color:var(--rose-dark)}
+
+  /* BENEFÍCIOS */
+  .benefits{background:linear-gradient(160deg,#FCE4EC,#fff)}
+  .benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:0 auto}
+  .benefit-card{background:#fff;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 3px 14px rgba(194,24,91,.09)}
+  .benefit-icon{font-size:30px;margin-bottom:8px;display:block}
+  .benefit-card h3{font-size:13px;font-weight:800;color:var(--rose-dark);margin-bottom:4px}
+  .benefit-card p{font-size:12px;color:var(--muted);line-height:1.5}
+
+  /* DEPOIMENTOS */
+  .testimonials{background:#fff}
+  .test-grid{display:flex;flex-direction:column;gap:16px;max-width:400px;margin:0 auto}
+  .test-card{background:linear-gradient(135deg,#FFF0F5,#FFF8FB);border-radius:18px;padding:18px;border-left:4px solid var(--rose)}
+  .test-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--rose-light)}
+  .avatar-fallback{width:46px;height:46px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;flex-shrink:0}
+  .test-name{font-weight:800;font-size:14px;color:var(--rose-dark)}
+  .test-city{font-size:11px;color:var(--muted)}
+  .test-stars{color:#FFB300;font-size:13px}
+  .test-text{font-size:14px;line-height:1.65;color:var(--text)}
+  .test-result{display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-top:8px}
+
+  /* O QUE INCLUI */
+  .whats-in{background:linear-gradient(160deg,#880E4F,#C2185B)}
+  .whats-in .section-title{color:#FFE082}
+  .whats-in .section-sub{color:rgba(255,255,255,.8)}
+  .include-list{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto}
+  .include-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);border-radius:14px;padding:14px}
+  .include-check{color:#FFE082;font-size:20px;flex-shrink:0}
+  .include-item p{color:#fff;font-size:14px;font-weight:600}
+
+  /* GARANTIA */
+  .guarantee{background:#fff;text-align:center}
+  .guarantee-box{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:20px;padding:28px 20px;max-width:380px;margin:0 auto;border:2px solid #66BB6A}
+  .guarantee-icon{font-size:50px;margin-bottom:12px;display:block}
+  .guarantee-box h3{font-family:'Playfair Display',serif;font-size:22px;color:#2E7D32;margin-bottom:8px}
+  .guarantee-box p{font-size:14px;color:#388E3C;line-height:1.65}
+
+  /* PRICING */
+  .pricing{background:var(--cream)}
+  .price-card{background:#fff;border-radius:24px;padding:28px 20px;max-width:380px;margin:0 auto;box-shadow:0 8px 30px rgba(194,24,91,.14);border:2px solid var(--rose-light);text-align:center}
+  .price-badge{display:inline-block;background:var(--rose);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.5px}
+  .price-card .old-price{font-size:16px}
+  .price-card .new-price{font-size:48px;color:var(--rose)}
+  .price-card .price-note{font-size:13px;margin-bottom:20px}
+  .urgency{background:#FFF3E0;border-radius:12px;padding:10px 16px;font-size:13px;font-weight:700;color:#E65100;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:6px}
+
+  /* FAQ */
+  .faq{background:#fff}
+  .faq-list{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .faq-item{background:#FFF0F5;border-radius:14px;overflow:hidden}
+  .faq-q{width:100%;background:none;border:none;padding:14px 16px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--rose-dark);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  .faq-q span{font-size:18px;transition:transform .3s}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+  .faq-a.open{max-height:200px;padding:0 16px 14px}
+  .faq-a p{font-size:13px;color:var(--muted);line-height:1.65}
+
+  /* FOOTER CTA */
+  .footer-cta{background:linear-gradient(160deg,#FCE4EC,#F8BBD0);padding:40px 20px;text-align:center}
+  .footer-cta h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--rose-dark);margin-bottom:10px}
+  .footer-cta p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.6}
+  .footer{background:var(--rose-dark);color:rgba(255,255,255,.6);text-align:center;padding:20px;font-size:12px}
+
+  /* NOTIFICAÇÃO LIVE */
+  #live-notif{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 6px 24px rgba(0,0,0,.15);display:flex;align-items:center;gap:10px;z-index:9999;width:calc(100% - 32px);max-width:360px;transition:transform .4s cubic-bezier(.175,.885,.32,1.275),opacity .4s;opacity:0;border-left:4px solid var(--rose)}
+  #live-notif.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .notif-dot{width:10px;height:10px;background:#4CAF50;border-radius:50%;flex-shrink:0;animation:pulse 1.5s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,.5)}50%{box-shadow:0 0 0 6px rgba(76,175,80,0)}}
+  .notif-text{flex:1}
+  .notif-name{font-weight:800;font-size:13px;color:var(--text)}
+  .notif-msg{font-size:12px;color:var(--muted)}
+  .notif-time{font-size:11px;color:#aaa;white-space:nowrap}
+
+  /* STICKY BOTTOM */
+  .sticky-buy{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #f0e0e6;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;z-index:999;box-shadow:0 -4px 20px rgba(194,24,91,.12)}
+  .sticky-price{font-size:11px;color:var(--muted);line-height:1.3}
+  .sticky-price strong{display:block;font-size:22px;font-weight:800;color:var(--rose)}
+  .sticky-btn{background:linear-gradient(135deg,var(--rose),var(--rose-dark));color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;padding:13px 24px;border-radius:50px;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(194,24,91,.3)}
+
+  /* COUNTER */
+  .live-counter{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;color:var(--rose-dark);margin-bottom:12px}
+  .live-dot{width:8px;height:8px;background:#F44336;border-radius:50%;animation:pulse 1.2s infinite}
+
+  /* MEDIA */
+  @media(min-width:480px){
+    .hero h1{font-size:36px}
+    .benefit-grid{max-width:440px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">🔥 OFERTA ESPECIAL — <span>Apenas R$17,90</span> por tempo limitado!</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="badge-new">✨ Método Exclusivo Feminino</span>
+    <h1>Emagreça de <em>Vez</em> e Transforme<br>Seu Corpo em 30 Dias</h1>
+    <p class="hero-sub">O método completo que já ajudou milhares de mulheres a perderem peso sem dieta maluca e sem academia.</p>
+
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label before">Antes</div>
+        <div class="ba-val">72<span class="ba-unit">kg</span></div>
+        <div class="ba-unit">sem energia</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:24px;color:var(--rose)">→</div>
+      <div class="ba-card">
+        <div class="ba-label after">Depois</div>
+        <div class="ba-val">58<span class="ba-unit">kg</span></div>
+        <div class="ba-unit" style="color:var(--rose)">confiante!</div>
+      </div>
+    </div>
+
+    <div class="stars-row">
+      <span class="star">★★★★★</span>
+    </div>
+    <p class="stars-text">+2.400 mulheres já transformaram seus corpos</p>
+
+    <div class="live-counter" style="margin-top:14px">
+      <span class="live-dot"></span>
+      <span id="view-count">38 mulheres</span> visualizando agora
+    </div>
+
+    <div class="price-wrap">
+      <div class="old-price">De R$ 27,90</div>
+      <div class="new-price"><small>R$</small> 17,90</div>
+      <div class="price-note">💳 Acesso imediato • Pagamento único</div>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/eLIkSna" class="cta-btn" id="main-cta">
+      🔓 QUERO EMAGRECER AGORA
+    </a>
+    <div class="guarantee-mini">🔒 Compra 100% segura &nbsp;|&nbsp; ✅ Garantia de 7 dias</div>
+  </div>
+</div>
+
+<!-- PROBLEMAS -->
+<section class="problems">
+  <h2 class="section-title">Você se Identifica?</h2>
+  <p class="section-sub">Se você vive isso no dia a dia, esse método foi feito pra você:</p>
+  <div class="problem-list">
+    <div class="problem-item"><span class="problem-icon">😩</span><p><strong>Faz dieta, emagrece e engorda de novo</strong> — o famoso efeito sanfona que não tem fim.</p></div>
+    <div class="problem-item"><span class="problem-icon">😴</span><p><strong>Sente-se cansada e sem energia</strong> para fazer atividades simples do dia a dia.</p></div>
+    <div class="problem-item"><span class="problem-icon">👗</span><p><strong>Olha para o guarda-roupa</strong> e não tem mais nada que sirva ou te deixe bonita.</p></div>
+    <div class="problem-item"><span class="problem-icon">😔</span><p><strong>Perde a autoestima</strong> e fica se comparando com outras mulheres o tempo todo.</p></div>
+    <div class="problem-item"><span class="problem-icon">🏋️</span><p><strong>Não tem tempo para academia</strong> e não sabe como emagrecer sem sair de casa.</p></div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="benefits">
+  <h2 class="section-title">O que Você vai Conquistar</h2>
+  <p class="section-sub">Com o método completo, sua transformação começa no primeiro dia!</p>
+  <div class="benefit-grid">
+    <div class="benefit-card"><span class="benefit-icon">🔥</span><h3>Queima de Gordura</h3><p>Acelere seu metabolismo de forma natural e duradoura</p></div>
+    <div class="benefit-card"><span class="benefit-icon">⚡</span><h3>Mais Energia</h3><p>Sinta-se disposta e animada todos os dias</p></div>
+    <div class="benefit-card"><span class="benefit-icon">🌿</span><h3>Sem Restrição</h3><p>Sem dietas radicais que tiram o prazer de comer</p></div>
+    <div class="benefit-card"><span class="benefit-icon">💃</span><h3>Autoestima Alta</h3><p>Ame seu corpo e sinta-se linda e confiante</p></div>
+    <div class="benefit-card"><span class="benefit-icon">🏠</span><h3>Em Casa</h3><p>Sem academia, sem equipamentos, no seu ritmo</p></div>
+    <div class="benefit-card"><span class="benefit-icon">📱</span><h3>Acesso 24h</h3><p>Acesse pelo celular quando e onde quiser</p></div>
+  </div>
+</section>
+
+<!-- O QUE INCLUI -->
+<section class="whats-in">
+  <h2 class="section-title">O que Está Incluído</h2>
+  <p class="section-sub">Tudo que você precisa para transformar seu corpo:</p>
+  <div class="include-list">
+    <div class="include-item"><span class="include-check">✅</span><p>Guia Completo de Emagrecimento Feminino</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Cardápio Semanal Pronto (sem sofrimento)</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Treinos em Casa de 20 minutos por dia</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Receitas Saudáveis e Deliciosas</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Técnicas de Controle de Ansiedade</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Bônus: Lista de Compras do Supermercado</p></div>
+    <div class="include-item"><span class="include-check">✅</span><p>Acesso Vitalício + Atualizações</p></div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+  <h2 class="section-title">Resultados Reais de Mulheres Reais</h2>
+  <p class="section-sub">Veja o que elas conquistaram seguindo o método:</p>
+  <div class="test-grid">
+
+    <div class="test-card">
+      <div class="test-top">
+        <div class="avatar-fallback">AP</div>
+        <div>
+          <div class="test-name">Ana Paula S.</div>
+          <div class="test-city">São Paulo, SP</div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="test-text">"Em 3 semanas já perdi 6kg! Nunca achei que fosse tão simples. O cardápio é incrível, comi coisas que amo e ainda assim emagreci. Me sinto outra pessoa!"</p>
+      <span class="test-result">🎯 Perdeu 6kg em 3 semanas</span>
+    </div>
+
+    <div class="test-card">
+      <div class="test-top">
+        <div class="avatar-fallback">CF</div>
+        <div>
+          <div class="test-name">Carla F.</div>
+          <div class="test-city">Rio de Janeiro, RJ</div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="test-text">"Tentei várias dietas e nenhuma funcionou. Esse método mudou tudo! Os exercícios em casa são práticos e em 1 mês perdi 8kg. Voltei a usar roupas que amava!"</p>
+      <span class="test-result">🎯 Perdeu 8kg em 1 mês</span>
+    </div>
+
+    <div class="test-card">
+      <div class="test-top">
+        <div class="avatar-fallback">MR</div>
+        <div>
+          <div class="test-name">Márcia R.</div>
+          <div class="test-city">Curitiba, PR</div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="test-text">"Minha autoestima voltou! Tenho 2 filhos e achava impossível emagrecer. O método é fácil de seguir mesmo com a correria do dia a dia. Recomendo demais!"</p>
+      <span class="test-result">🎯 Perdeu 11kg em 6 semanas</span>
+    </div>
+
+    <div class="test-card">
+      <div class="test-top">
+        <div class="avatar-fallback">JS</div>
+        <div>
+          <div class="test-name">Juliana S.</div>
+          <div class="test-city">Belo Horizonte, MG</div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="test-text">"Investi R$17,90 e mudei minha vida! Já estava desesperada com o peso. Em 2 meses perdi 14kg e meu médico ficou impressionado com meus exames!"</p>
+      <span class="test-result">🎯 Perdeu 14kg em 2 meses</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="guarantee">
+  <h2 class="section-title">Garantia Total de 7 Dias</h2>
+  <div class="guarantee-box">
+    <span class="guarantee-icon">🛡️</span>
+    <h3>Satisfação Garantida</h3>
+    <p>Acesse o método por <strong>7 dias completos</strong>. Se por qualquer motivo você não ficar satisfeita, devolvemos <strong>100% do seu dinheiro</strong> sem perguntas. Zero risco para você!</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <h2 class="section-title">Comece Sua Transformação Hoje</h2>
+  <div class="price-card">
+    <div class="price-badge">🌸 OFERTA ESPECIAL</div>
+    <div class="old-price">De R$ 27,90</div>
+    <div class="new-price"><small>R$</small> 17,90</div>
+    <div class="price-note">Pagamento único • Acesso imediato e vitalício</div>
+    <div class="urgency">⏰ Oferta expira em breve!</div>
+    <a href="https://pay.kiwify.com.br/eLIkSna" class="cta-btn">
+      🔓 GARANTIR MINHA VAGA AGORA
+    </a>
+    <div class="guarantee-mini" style="margin-top:14px">
+      🔒 Pagamento seguro &nbsp;•&nbsp; 🛡️ Garantia 7 dias &nbsp;•&nbsp; 📱 Acesso imediato
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="section-title">Perguntas Frequentes</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Como vou receber o acesso? <span>+</span></button>
+      <div class="faq-a"><p>Após a confirmação do pagamento, você receberá um e-mail com o link de acesso imediato. É só clicar e já começar!</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Funciona para qualquer idade? <span>+</span></button>
+      <div class="faq-a"><p>Sim! O método foi desenvolvido especialmente para mulheres de todas as idades, incluindo quem está na menopausa.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Precisa de academia ou equipamentos? <span>+</span></button>
+      <div class="faq-a"><p>Não! Todos os exercícios foram criados para serem feitos em casa, sem nenhum equipamento especial.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">E se eu não gostar? <span>+</span></button>
+      <div class="faq-a"><p>Você tem 7 dias de garantia. Se não ficar satisfeita por qualquer motivo, devolvemos 100% do valor pago.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Quanto tempo leva para ver resultados? <span>+</span></button>
+      <div class="faq-a"><p>A maioria das mulheres percebe resultados já na primeira semana. Em 30 dias, os resultados são impressionantes!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <h2>Sua Transformação<br>Começa Agora! 💪</h2>
+  <p>Não deixe para amanhã o que pode mudar sua vida hoje. Mais de 2.400 mulheres já escolheram se transformar.</p>
+  <a href="https://pay.kiwify.com.br/eLIkSna" class="cta-btn">🌸 SIM, EU QUERO ME TRANSFORMAR!</a>
+  <div class="guarantee-mini" style="margin-top:14px;justify-content:center">
+    🔒 Compra segura &nbsp;|&nbsp; ✅ Garantia 7 dias
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2025 Método Corpo em Forma. Todos os direitos reservados.</p>
+  <p style="margin-top:6px">Os resultados podem variar de pessoa para pessoa.</p>
+</div>
+
+<!-- STICKY BOTTOM -->
+<div class="sticky-buy">
+  <div class="sticky-price">
+    <span style="text-decoration:line-through;font-size:11px;color:#aaa">R$27,90</span>
+    <strong>R$ 17,90</strong>
+  </div>
+  <a href="https://pay.kiwify.com.br/eLIkSna" class="sticky-btn">🔓 COMPRAR AGORA</a>
+</div>
+
+<!-- NOTIFICAÇÃO LIVE -->
+<div id="live-notif">
+  <div class="notif-dot"></div>
+  <div class="notif-text">
+    <div class="notif-name" id="notif-name">Ana de São Paulo</div>
+    <div class="notif-msg" id="notif-msg">acabou de comprar o método 🎉</div>
+  </div>
+  <div class="notif-time" id="notif-time">agora</div>
+</div>
+
+<script>
+// FAQ Toggle
+function toggleFaq(btn){
+  const a=btn.nextElementSibling;
+  const span=btn.querySelector('span');
+  const open=a.classList.toggle('open');
+  span.style.transform=open?'rotate(45deg)':'rotate(0)';
+}
+
+// Live notifications
+const names=[
+  {n:'Maria de Curitiba',m:'acabou de comprar o método 🎉'},
+  {n:'Fernanda de SP',m:'fez sua inscrição agora mesmo ✨'},
+  {n:'Patrícia do RJ',m:'garantiu seu acesso! 💪'},
+  {n:'Luciana de BH',m:'começou sua transformação 🌸'},
+  {n:'Beatriz de Brasília',m:'acabou de adquirir o método ✅'},
+  {n:'Renata de Fortaleza',m:'garantiu a oferta especial 🔥'},
+  {n:'Camila de Porto Alegre',m:'acabou de se inscrever 🎯'},
+  {n:'Simone de Salvador',m:'pegou a última vaga disponível! 🏃‍♀️'},
+  {n:'Débora de Recife',m:'acabou de comprar agora 💃'},
+  {n:'Amanda de Florianópolis',m:'garantiu seu desconto especial ⭐'}
+];
+const times=['agora','1 min','2 min','há pouco'];
+let ni=0;
+function showNotif(){
+  const d=names[(ni++)%names.length];
+  const el=document.getElementById('live-notif');
+  document.getElementById('notif-name').textContent=d.n;
+  document.getElementById('notif-msg').textContent=d.m;
+  document.getElementById('notif-time').textContent=times[Math.floor(Math.random()*times.length)];
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),4500);
+}
+setTimeout(showNotif,3000);
+setInterval(showNotif,9000);
+
+// Random viewer count
+const vc=document.getElementById('view-count');
+let viewers=35+Math.floor(Math.random()*20);
+setInterval(()=>{
+  viewers+=Math.floor(Math.random()*3)-1;
+  if(viewers<20)viewers=20;
+  if(viewers>80)viewers=80;
+  vc.textContent=viewers+' mulheres';
+},7000);
+
+// Countdown urgency (simple blinking)
+const urgEl=document.querySelector('.urgency');
+if(urgEl){setInterval(()=>{urgEl.style.opacity=urgEl.style.opacity==='0.6'?'1':'0.6'},900);}
+</script>
+</body>
+</html>
